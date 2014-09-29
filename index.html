@@ -15,48 +15,60 @@
         keyRows[0] = [km.z, km.x, km.c, km.v, km.b, km.n, km.m];
         keyRows[1] = [km.a, km.s, km.d, km.f, km.g, km.h, km.j, km.k, km.l];
         keyRows[2] = [km.q, km.w, km.e, km.r, km.t, km.y, km.u, km.i, km.o, km.p];
+        keyRows[3] = [km['1'], km['2'], km['3'], km['4'], km['5'], km['6'], km['7'], km['8'], km['9'], km['0'];
+
+
+
         myKeymap = km;
-        assignScale(majorScale, keyRows[2]);
+
+
+        assignScale(majorScale, keyRows[3], 36);
+        assignScale(majorScale, keyRows[2], 24);
+        assignScale(majorScale, keyRows[1], 12);
+        assignScale(majorScale, keyRows[0]);
+
       }
 
       var majorScale = [0, 2, 4, 5, 7, 9, 11];
       var root = 48;
 
-      function assignScale(scale, keys) {
+      /**
+       *  Accepts an array of scale, an array of keys (i.e. keyRows[0] or keyDiag[0])
+       *  and an offset. Assigns midi notes from the scale to each item in the key array.
+       */
+      function assignScale(scale, keys, offset) {
+        var offset = offset || 0;
         for (var i in keys) {
           var rootOffset = root;
           var whichNote = i % scale.length;
           if (i > scale.length - 1) {
             rootOffset += 12;
           }
-          keys[i].note = scale[whichNote] + rootOffset;
+          keys[i].note = scale[whichNote] + rootOffset + offset;
         }
       }
 
       //set up Tone Synth
-      var mySynth = new Tone.FMSynth();
+      var mySynth = new Tone.PolySynth(10, Tone.MonoSynth);
+      mySynth.setPreset('Pianoetta');
       mySynth.toMaster();
 
 
       window.onkeydown = function (e) {
-        console.log(e.keyCode);
         for (var k in myKeymap) {
-          if (myKeymap[k].keyCode == e.keyCode + 32) {
-            console.log('key down!' + myKeymap[k].keyCode);
-            mySynth.frequency.setValue( midiToFreq(myKeymap.note) );
-            mySynth.triggerAttackRelease( mySynth.now() );
+          if (myKeymap[k].keyCode == e.keyCode) {
+            mySynth.triggerAttack( midiToFreq(myKeymap[k].note), mySynth.now() );
           }
         }
       }
 
       window.onkeyup = function(e) {
-        console.log(e.keyCode);
         for (var k in myKeymap) {
-          if (myKeymap[k].keyCode == (e.keyCode + 32) ) {
-            console.log('key up! ' + myKeymap[k].keyCode);
+          if (myKeymap[k].keyCode == (e.keyCode) ) {
+            mySynth.triggerRelease( midiToFreq(myKeymap[k].note), mySynth.now() );
           }
         }
-      }
+      }11
 
       // HELPER FUNCTIONS
     function midiToFreq (m) {
