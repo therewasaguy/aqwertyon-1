@@ -1,198 +1,198 @@
 {      "z" : {
         "audio" : "sample",
         "image" : "image",
-        "keyCode" : 122
+        "keyCode" : 90
       },
       "x" : {         
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 120       
+        "keyCode" : 88       
       },
     
       "c" : {         
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 99     
+        "keyCode" : 67    
       },
       
       "v" : {         
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 118       
+        "keyCode" : 86       
       },
       
       "b" : {         
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 98    
+        "keyCode" : 66    
       },
       
       "n" : {         
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 110   
+        "keyCode" : 78  
       },
       
       "m" : {         
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 109     
+        "keyCode" : 77     
       },  
       
       "," : {         
         "audio" : "",     
         "image" : "",   
-        "keyCode" : 44    
+        "keyCode" : 188    
       },
     
       "." : {       
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 46    
+        "keyCode" : 190    
       },
       
       "/" : {         
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 47    
+        "keyCode" : 220    
       },
       
       "a" : {       
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 97    
+        "keyCode" : 65    
       },
       
       "s" : {
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 115   
+        "keyCode" : 83   
       },
       
       "d" : {         
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 100   
+        "keyCode" : 68   
       },  
       
       "f" : {       
         "audio" : "",   
         "image" : "",     
-        "keyCode" : 102     
+        "keyCode" : 70     
       },
     
       "g" : {         
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 103     
+        "keyCode" : 71    
       },
       
       "h" : {         
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 104   
+        "keyCode" : 72  
       },
       
       "j" : {         
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 106   
+        "keyCode" : 74 
       },
       
       "k" : {       
         "audio" : "",
         "image" : "",   
-        "keyCode" : 107   
+        "keyCode" : 75 
       },
 
       "l" : {       
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 108     
+        "keyCode" : 76   
       },
     
       ";" : {       
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 59  
+        "keyCode" : 186  
       },
       
       "'" : {       
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 42      
+        "keyCode" : 222      
       },
       
       "q" : {         
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 113   
+        "keyCode" : 81   
       },
       
       "w" : {         
         "audio" : "",     
         "image" : "",   
-        "keyCode" : 119   
+        "keyCode" : 87   
       },
       
       "e" : {       
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 101   
+        "keyCode" : 69   
       },  
       
       "r" : {       
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 114     
+        "keyCode" : 82     
       },
     
       "t" : {       
         "audio" : "",     
         "image" : "",   
-        "keyCode" : 116   
+        "keyCode" : 84   
       },
       
       "y" : {         
         "audio" : "",   
         "image" : "",     
-        "keyCode" : 121   
+        "keyCode" : 89   
       },
       
       "u" : {       
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 117   
+        "keyCode" : 85   
       },
       
       "i" : {       
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 105   
+        "keyCode" : 73   
       },
       
       "o" : {         
         "audio" : "",     
         "image" : "",
-        "keyCode" : 111     
+        "keyCode" : 79     
       },  
       
       "p" : {     
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 112   
+        "keyCode" : 80   
       },
     
       "[" : {       
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 91    
+        "keyCode" : 219    
       },
       
       "]" : {       
         "audio" : "",     
         "image" : "",     
-        "keyCode" : 93      
+        "keyCode" : 221      
       }
 
 }
