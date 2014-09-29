@@ -1,0 +1,198 @@
+{      "z" : {
+        "audio" : "sample",
+        "image" : "image",
+        "keyCode" : 122
+      },
+      "x" : {         
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 120       
+      },
+    
+      "c" : {         
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 99     
+      },
+      
+      "v" : {         
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 118       
+      },
+      
+      "b" : {         
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 98    
+      },
+      
+      "n" : {         
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 110   
+      },
+      
+      "m" : {         
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 109     
+      },  
+      
+      "," : {         
+        "audio" : "",     
+        "image" : "",   
+        "keyCode" : 44    
+      },
+    
+      "." : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 46    
+      },
+      
+      "/" : {         
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 47    
+      },
+      
+      "a" : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 97    
+      },
+      
+      "s" : {
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 115   
+      },
+      
+      "d" : {         
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 100   
+      },  
+      
+      "f" : {       
+        "audio" : "",   
+        "image" : "",     
+        "keyCode" : 102     
+      },
+    
+      "g" : {         
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 103     
+      },
+      
+      "h" : {         
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 104   
+      },
+      
+      "j" : {         
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 106   
+      },
+      
+      "k" : {       
+        "audio" : "",
+        "image" : "",   
+        "keyCode" : 107   
+      },
+
+      "l" : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 108     
+      },
+    
+      ";" : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 59  
+      },
+      
+      "'" : {       
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 42      
+      },
+      
+      "q" : {         
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 113   
+      },
+      
+      "w" : {         
+        "audio" : "",     
+        "image" : "",   
+        "keyCode" : 119   
+      },
+      
+      "e" : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 101   
+      },  
+      
+      "r" : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 114     
+      },
+    
+      "t" : {       
+        "audio" : "",     
+        "image" : "",   
+        "keyCode" : 116   
+      },
+      
+      "y" : {         
+        "audio" : "",   
+        "image" : "",     
+        "keyCode" : 121   
+      },
+      
+      "u" : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 117   
+      },
+      
+      "i" : {       
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 105   
+      },
+      
+      "o" : {         
+        "audio" : "",     
+        "image" : "",
+        "keyCode" : 111     
+      },  
+      
+      "p" : {     
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 112   
+      },
+    
+      "[" : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 91    
+      },
+      
+      "]" : {       
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 93      
+      }
+
+}
