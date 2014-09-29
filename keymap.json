@@ -1,4 +1,65 @@
-{      "z" : {
+{      
+      "1" : {       
+        "audio" : "sample",   
+        "image" : "image",   
+        "keyCode" : 49   
+      },  
+      
+      "2" : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 50     
+      },
+    
+      "3" : {       
+        "audio" : "",     
+        "image" : "",   
+        "keyCode" : 51   
+      },
+      
+      "4" : {         
+        "audio" : "",   
+        "image" : "",     
+        "keyCode" : 52   
+      },
+      
+      "5" : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 53   
+      },
+      
+      "6" : {       
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 54   
+      },
+      
+      "7" : {         
+        "audio" : "",     
+        "image" : "",
+        "keyCode" : 55     
+      },  
+      
+      "8" : {     
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 56   
+      },
+    
+      "9" : {       
+        "audio" : "",   
+        "image" : "",   
+        "keyCode" : 57    
+      },
+      
+      "0" : {       
+        "audio" : "",     
+        "image" : "",     
+        "keyCode" : 48      
+      }
+        
+        "z" : {
         "audio" : "sample",
         "image" : "image",
         "keyCode" : 90
@@ -194,5 +255,6 @@
         "image" : "",     
         "keyCode" : 221      
       }
+      
 
 }
