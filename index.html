@@ -33,14 +33,18 @@
         }
       }
 
-      // set up Tone Synth
-      // var mySynth = new Tone.FMSynth();
+      //set up Tone Synth
+      var mySynth = new Tone.FMSynth();
+      mySynth.toMaster();
+
 
       window.onkeydown = function (e) {
         console.log(e.keyCode);
         for (var k in myKeymap) {
-          if (myKeymap[k].keyCode == e.keyCode) {
+          if (myKeymap[k].keyCode == e.keyCode + 32) {
             console.log('key down!' + myKeymap[k].keyCode);
+            mySynth.frequency.setValue( midiToFreq(myKeymap.note) );
+            mySynth.triggerAttackRelease( mySynth.now() );
           }
         }
       }
@@ -54,6 +58,10 @@
         }
       }
 
+      // HELPER FUNCTIONS
+    function midiToFreq (m) {
+      return 440 * Math.pow(2, (m - 69) / 12);
+    };
 
     </script>
   </head>
