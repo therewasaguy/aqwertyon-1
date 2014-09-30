@@ -1,6 +1,7 @@
 <html>
   <head>
     <script language="javascript" type="text/javascript" src="./lib/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="./lib/p5.dom.js"></script>
     <script language="javascript" type="text/javascript" src="./lib/Tone.js"></script>
     <script language="javascript" type="text/javascript" src="./utube.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css">
@@ -11,6 +12,9 @@
       var keyDiags = [];
 
       function setup() {
+        // set the canvas position so that mouseX and mouseY are relative to top corner
+        cnv = createCanvas(0,0);
+        cnv.position(0,0);
         loadJSON('keymap.json', registerKeymap);
       }
 
@@ -83,14 +87,15 @@
 
       function mouseClicked() {
         console.log(mouseX, mouseY);
-        if (mouseX > 0 && mouseX < 540 && mouseY < -420) {
+        if (mouseX < videoWidth && mouseY < videoHeight) {
 
           if (playing === false) {
-            callPlayer("whateverID", "playVideo");
-            console.log('play video!');
+            player.playVideo();
+            console.log('start');
             playing = true;
           } else {
-            callPlayer("whateverID", "stopVideo");
+            player.stopVideo();
+            console.log('stop');
             playing = false;
           }
         }
@@ -105,8 +110,10 @@
     </div>
 
     <div id="container">
-      <iframe id="whateverID" width="560" height="315" src="//www.youtube.com/embed/lVFNRrL79w0?feature=player_embedded&controls=0&enablejsapi=1&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
-    </div>
+      <div id="myVideo">
+<!--       <iframe id="myVideo" width="560" height="315" src="//www.youtube.com/embed/lVFNRrL79w0?feature=player_embedded&controls=0&enablejsapi=1&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+     </div>
+   </div>
 
   </body>
 </html>
