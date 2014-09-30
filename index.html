@@ -79,21 +79,34 @@
         }
       }
 
-    // function mouseClicked() {
-    //   console.log(mouseX, mouseY);
-    // }
+      var playing = false;
+
+      function mouseClicked() {
+        console.log(mouseX, mouseY);
+        if (mouseX > 0 && mouseX < 540 && mouseY < -420) {
+
+          if (playing === false) {
+            callPlayer("whateverID", "playVideo");
+            console.log('play video!');
+            playing = true;
+          } else {
+            callPlayer("whateverID", "stopVideo");
+            playing = false;
+          }
+        }
+      }
 
     </script>
   </head>
 
   <body>
 
-<!--     <div id="titlebar">
+    <div id="titlebar">
     </div>
 
-    <div id="container"> -->
+    <div id="container">
       <iframe id="whateverID" width="560" height="315" src="//www.youtube.com/embed/lVFNRrL79w0?feature=player_embedded&controls=0&enablejsapi=1&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
-    <!-- </div> -->
+    </div>
 
   </body>
 </html>

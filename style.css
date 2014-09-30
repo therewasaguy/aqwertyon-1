@@ -1,0 +1,22 @@
+#titlebar{
+  position: relative;
+  width: 950px;
+  height: 720px;
+  background-color: #FFF;
+  opacity: 0;
+  /*top : 5px;*/
+  z-index: 1;
+}
+
+#container{
+  position:absolute;
+  left: 0;
+  top: 0;
+  margin-top: 1px;
+  margin-left: 1px;
+  width: 950px;
+  height: 720px;
+  background-color: #ffffff;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+}
