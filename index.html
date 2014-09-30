@@ -2,6 +2,9 @@
   <head>
     <script language="javascript" type="text/javascript" src="./lib/p5.js"></script>
     <script language="javascript" type="text/javascript" src="./lib/Tone.js"></script>
+    <script language="javascript" type="text/javascript" src="./utube.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
     <script>
       var myKeymap;
       var keyRows = [];
@@ -15,10 +18,9 @@
         keyRows[0] = [km.z, km.x, km.c, km.v, km.b, km.n, km.m];
         keyRows[1] = [km.a, km.s, km.d, km.f, km.g, km.h, km.j, km.k, km.l];
         keyRows[2] = [km.q, km.w, km.e, km.r, km.t, km.y, km.u, km.i, km.o, km.p];
-        keyRows[3] = [km['1'], km['2'], km['3'], km['4'], km['5'], km['6'], km['7'], km['8'], km['9'], km['0'];
-
-
-
+        keyRows[3] = [km['1'], km['2'], km['3'], km['4'], km['5'],
+                      km['6'], km['7'], km['8'], km['9'], km['0']
+                      ];
         myKeymap = km;
 
 
@@ -56,29 +58,42 @@
 
       window.onkeydown = function (e) {
         for (var k in myKeymap) {
-          if (myKeymap[k].keyCode == e.keyCode) {
-            mySynth.triggerAttack( midiToFreq(myKeymap[k].note), mySynth.now() );
+          if (myKeymap[k].keyCode === e.keyCode) {
+            console.log(e.keyCode);
+            if (myKeymap[k].note > 20) {
+              mySynth.triggerAttack( mySynth.midiToNote(myKeymap[k].note), mySynth.now() );
+            }
+            return;
           }
         }
       }
 
       window.onkeyup = function(e) {
         for (var k in myKeymap) {
-          if (myKeymap[k].keyCode == (e.keyCode) ) {
-            mySynth.triggerRelease( midiToFreq(myKeymap[k].note), mySynth.now() );
+          if (myKeymap[k].keyCode === (e.keyCode) ) {
+            if (myKeymap[k].note > 20) {
+              mySynth.triggerRelease( mySynth.midiToNote(myKeymap[k].note), mySynth.now() );
+            }
+            return;
           }
         }
-      }11
+      }
 
-      // HELPER FUNCTIONS
-    function midiToFreq (m) {
-      return 440 * Math.pow(2, (m - 69) / 12);
-    };
+    // function mouseClicked() {
+    //   console.log(mouseX, mouseY);
+    // }
 
     </script>
   </head>
 
   <body>
+
+<!--     <div id="titlebar">
+    </div>
+
+    <div id="container"> -->
+      <iframe id="whateverID" width="560" height="315" src="//www.youtube.com/embed/lVFNRrL79w0?feature=player_embedded&controls=0&enablejsapi=1&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+    <!-- </div> -->
 
   </body>
 </html>
