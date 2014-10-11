@@ -20,3 +20,10 @@
   background-position: 0px 0px;
   background-repeat: no-repeat;
 }
+#menu{
+	float: right;
+	position:relative;
+	margin-right: 100;
+	height: 30;
+	border-width: 2;
+}
