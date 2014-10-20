@@ -2,137 +2,161 @@
       "1" : {       
         "audio" : "sample",   
         "image" : "image",   
-        "keyCode" : 49   
+        "keyCode" : 49,
+        "playing" : false
+        
       },  
       
       "2" : {       
         "audio" : "",   
         "image" : "",   
-        "keyCode" : 50     
+        "keyCode" : 50,
+         "playing" : false     
       },
     
       "3" : {       
         "audio" : "",     
         "image" : "",   
-        "keyCode" : 51   
+        "keyCode" : 51,
+         "playing" : false   
       },
       
       "4" : {         
         "audio" : "",   
-        "image" : "",     
+        "image" : "", 
+         "playing" : false,    
         "keyCode" : 52   
       },
       
       "5" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 53   
       },
       
       "6" : {       
         "audio" : "",     
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 54   
       },
       
       "7" : {         
         "audio" : "",     
         "image" : "",
+        "playing" : false,
         "keyCode" : 55     
       },  
       
       "8" : {     
         "audio" : "",     
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 56   
       },
     
       "9" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 57    
       },
       
       "0" : {       
         "audio" : "",     
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 48      
       },
         
         "z" : {
         "audio" : "sample",
         "image" : "image",
+        "playing" : false,
         "keyCode" : 90
       },
       "x" : {         
         "audio" : "",     
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 88       
       },
     
       "c" : {         
         "audio" : "",     
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,   
         "keyCode" : 67    
       },
       
       "v" : {         
         "audio" : "",     
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 86       
       },
       
       "b" : {         
         "audio" : "",     
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 66    
       },
       
       "n" : {         
         "audio" : "",     
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 78  
       },
       
       "m" : {         
         "audio" : "",     
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 77     
       },  
       
       "," : {         
         "audio" : "",     
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 188    
       },
     
       "." : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "",
+        "playing" : false,   
         "keyCode" : 190    
       },
       
       "/" : {         
         "audio" : "",     
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 220    
       },
       
       "a" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 65    
       },
       
       "s" : {
         "audio" : "",   
-        "image" : "",   
+        "image" : "",
+        "playing" : false,   
         "keyCode" : 83   
       },
       
       "d" : {         
         "audio" : "",   
-        "image" : "",   
+        "image" : "",
+        "playing" : false,   
         "keyCode" : 68   
       },  
       
@@ -144,43 +168,50 @@
     
       "g" : {         
         "audio" : "",   
-        "image" : "",   
+        "image" : "",
+        "playing" : false,   
         "keyCode" : 71    
       },
       
       "h" : {         
         "audio" : "",   
-        "image" : "",   
+        "image" : "",
+        "playing" : false,   
         "keyCode" : 72  
       },
       
       "j" : {         
         "audio" : "",   
-        "image" : "",   
+        "image" : "",
+        "playing" : false,   
         "keyCode" : 74 
       },
       
       "k" : {       
         "audio" : "",
-        "image" : "",   
+        "image" : "",  
+        "playing" : false, 
         "keyCode" : 75 
       },
 
       "l" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 76   
       },
     
       ";" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 186  
       },
       
       "'" : {       
         "audio" : "",     
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 222      
       },
       

@@ -1,3 +1,7 @@
+/*
+  Titlebar blocks the Video div so we can
+  usurp youtube controls
+ */
 #titlebar{
   position: relative;
   width: 740px;
