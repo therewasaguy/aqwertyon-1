@@ -112,7 +112,8 @@ function mapScales(){
 	assignScale(scale, keyRows[0]);
 }
 
-function registerKeymap() {
+function registerKeymap(km) {
+
     keyRows[0] = [km.z, km.x, km.c, km.v, km.b, km.n, km.m];
     keyRows[1] = [km.a, km.s, km.d, km.f, km.g, km.h, km.j, km.k, km.l];
     keyRows[2] = [km.q, km.w, km.e, km.r, km.t, km.y, km.u, km.i, km.o, km.p];

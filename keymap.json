@@ -24,7 +24,7 @@
       "4" : {         
         "audio" : "",   
         "image" : "", 
-         "playing" : false,    
+        "playing" : false,    
         "keyCode" : 52   
       },
       
@@ -162,7 +162,8 @@
       
       "f" : {       
         "audio" : "",   
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 70     
       },
     
@@ -217,73 +218,85 @@
       
       "q" : {         
         "audio" : "",     
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 81   
       },
       
       "w" : {         
         "audio" : "",     
-        "image" : "",   
+        "image" : "",
+        "playing" : false,   
         "keyCode" : 87   
       },
       
       "e" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 69   
       },  
       
       "r" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "",  
+        "playing" : false, 
         "keyCode" : 82     
       },
     
       "t" : {       
         "audio" : "",     
-        "image" : "",   
+        "image" : "",
+        "playing" : false,   
         "keyCode" : 84   
       },
       
       "y" : {         
         "audio" : "",   
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 89   
       },
       
       "u" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 85   
       },
       
       "i" : {       
         "audio" : "",     
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 73   
       },
       
       "o" : {         
         "audio" : "",     
         "image" : "",
+        "playing" : false,
         "keyCode" : 79     
       },  
       
       "p" : {     
         "audio" : "",     
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 80   
       },
     
       "[" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 219    
       },
       
       "]" : {       
         "audio" : "",     
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 221      
       }
       
