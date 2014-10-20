@@ -112,7 +112,7 @@ function mapScales(){
 	assignScale(scale, keyRows[0]);
 }
 
-function registerKeymap() {
+function registerKeymap(km) {
     keyRows[0] = [km.z, km.x, km.c, km.v, km.b, km.n, km.m];
     keyRows[1] = [km.a, km.s, km.d, km.f, km.g, km.h, km.j, km.k, km.l];
     keyRows[2] = [km.q, km.w, km.e, km.r, km.t, km.y, km.u, km.i, km.o, km.p];
@@ -120,13 +120,32 @@ function registerKeymap() {
                   km['6'], km['7'], km['8'], km['9'], km['0']
                   ];
     myKeymap = km;
-    
+
 
     assignScale(scale, keyRows[3], 36);
     assignScale(scale, keyRows[2], 24);
     assignScale(scale, keyRows[1], 12);
     assignScale(scale, keyRows[0]);
+	      
+    if (scale == major){
+    thirds = major3rds;
+    fifths = major5ths;
+    }
+    if (scale == minor){
+    thirds = minor3rds;
+    fifths = minor5ths;
+    }
 
+
+    if (scale == harmMinor){
+    thirds = hMinor3rds;
+    fifths = hMinor5ths;
+    }
+
+
+    console.log(thirds, fifths);
+    assignScale(thirds, keyRows[1]);
+    assignScale(fifths, keyRows[2]);
+    assignScale(scale, keyRows[3], 12);
+    isChords = true;
 }
-
-		
