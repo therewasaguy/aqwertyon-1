@@ -99,4 +99,5 @@ function clickMajorPent() {
 	      assignScale(thirds, keyRows[1]);
 	      assignScale(fifths, keyRows[2]);
 	      assignScale(scale, keyRows[3], 12);
-	      isChords = true;		
+	      isChords = true;
+      }
