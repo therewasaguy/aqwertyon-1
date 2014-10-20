@@ -5,6 +5,7 @@
     <script language="javascript" type="text/javascript" src="./lib/Tone.js"></script>
     <script language="javascript" type="text/javascript" src="./js/utube.js"></script>
     <script language="javascript" type="text/javascript" src="./js/keyMap.js"></script>
+    <script language="javascript" type="text/javascript" src="./js/keyLogger.js"></script>
    
     
         <link rel="stylesheet" type="text/css" href="./style.css">
@@ -105,7 +106,9 @@
             console.log(e.keyCode);
             myKeymap[k].playing = true;
             if (myKeymap[k].note > 20) {
-             // logKeyDown(myKeymap[k], note);
+
+              logKeyDown(myKeymap[k].keyCode, myKeymap[k].note);
+
               mySynth.triggerAttack( mySynth.midiToNote(myKeymap[k].note), mySynth.now() );
             }
             return;
@@ -118,7 +121,9 @@
           if (myKeymap[k].keyCode === (e.keyCode) ) {
             if (myKeymap[k].note > 20) {
               myKeymap[k].playing = false;
-            //  logKeyUp(myKeymap[k], note);
+
+              logKeyUp(myKeymap[k].keyCode, myKeymap[k].note);
+
               mySynth.triggerRelease( mySynth.midiToNote(myKeymap[k].note), mySynth.now() );
             }
             return;
