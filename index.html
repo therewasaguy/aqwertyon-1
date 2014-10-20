@@ -7,17 +7,31 @@
    
     
         <link rel="stylesheet" type="text/css" href="./style.css">
-        
-       
-        
- <div id = 'menu'>      
- <p id="Maj" onclick="clickMajor()">Major</p>
- <p id="Min" onclick="clickMinor()">Minor</p>
- <p id="MPent" onclick="clickMajorPent()">Major Pentatonic</p>
- <p id="miPent" onclick="clickMinorPent()">Minor Pentatonic</p>
- <p id="Blues" onclick="clickBlues()">Blues</p>
- 
+
+ <div id = 'scales'>
+ 	<h3>Scales</h3>      
+	 <p id="Maj" onclick="clickMajor()">Major</p>
+	 <p id="Min" onclick="clickMinor()">Minor</p>
+	 <p id="MPent" onclick="clickMajorPent()">Major Pentatonic</p>
+	 <p id="miPent" onclick="clickMinorPent()">Minor Pentatonic</p>
+	 <p id="Blues" onclick="clickBlues()">Blues</p>
+	 <p id="Whole" onclick="clickWholeTone()">Whole Tone</p>
+	 <p id="harmMinor" onclick="clickHarmMinor()">Harmonic Minor</p>
+
  </div>
+ 
+ <div id = 'chords'>
+ 	<h3>Chords</h3>
+	 <p id="chordMaj" onclick="clickMajChords()">Major</p>
+	 <p id="chordMin" onclick="clickMinChords()">Minor</p>
+	 <p id="chordHMin" onclick="clickHMinChords()">Harmonic Minor</p>
+ </div> 
+      
+ <div id = 'menu'> 
+ 	<h3>Options</h3>
+	 <p id="root+" onclick="rootUp()">Root +</p>
+	 <p id="root-" onclick="rootDown()">Root -</p>
+ </div>  
    
     <script>
       var myKeymap;
@@ -25,11 +39,25 @@
       var keyDiags = [];
       var scale = [];
       var major = [0, 2, 4, 5, 7, 9, 11];
+      var major3rds = [4,5,7,9,11,12,14];
+      var major5ths = [7,9,11,12,14,16,17];
       var minor = [0, 2, 3, 5, 7, 8, 10];
+      var minor3rds = [3,5,7,8,10,12,14];
+      var minor5ths = [7,8,10,12,14,15,17];
       var mnPent = [0, 3, 5, 7, 10];
       var MjPent = [0, 2, 4, 7, 9];
       var blues = [0,3,5,6,7,10];
-      var root = 48;
+      var wholeTone = [0,2,4,6,8,10];
+      var harmMinor = [0,2,3,5,7,8,11];
+      var hMinor3rds = [3,5,7,8,11,12,14];
+      var hMinor5ths = [7,8,10,12,14,15,17];
+      var root;
+      var chords;
+      var isChords;
+      var thirds = [];
+	  var fifths = [];
+      
+    
 
       function setup() {
         // set the canvas position so that mouseX and mouseY are relative to top corner
@@ -37,6 +65,30 @@
         cnv.position(0,0);
         loadJSON('keymap.json', registerKeymap);
         scale = major;
+        root = 48;
+        isChords = false;
+        thirds = major3rds;
+        fifths = major5ths;
+        chords = major;
+      }
+
+
+      function rootUp(){
+      root+=1;	
+	      if (isChords == true) 
+	      assignChords(chords);
+	      else
+	      mapScales();
+      
+      }
+      
+      function rootDown(){
+      root-=1;
+	      if (isChords == true) 
+	      assignChords(chords);
+	      else
+	      mapScales();
+            
       }
 
       function registerKeymap(km) {
@@ -48,12 +100,6 @@
                       ];
         myKeymap = km;
         
-        
-     
-
-        
-      
-        
 
         assignScale(scale, keyRows[3], 36);
         assignScale(scale, keyRows[2], 24);
@@ -63,65 +109,112 @@
       }
 
      
-
-     
-       
-       
+ 
     function clickMajor() {
     scale = major;
     console.log("Major");
-    assignScale(scale, keyRows[3], 36);
-    assignScale(scale, keyRows[2], 24);
-    assignScale(scale, keyRows[1], 12);
-    assignScale(scale, keyRows[0]);
-    }
+    mapScales();
+    isChords = false;
+    
+     }
     
     function clickMinor() {
     this.scale = minor;
     console.log("Minor");
-    assignScale(scale, keyRows[3], 36);
-    assignScale(scale, keyRows[2], 24);
-    assignScale(scale, keyRows[1], 12);
-    assignScale(scale, keyRows[0]);
+    mapScales();
+    isChords = false;
     }
     
     function clickMajorPent() {
     scale = MjPent;
     console.log("MajorPent");
-    assignScale(scale, keyRows[3], 36);
-    assignScale(scale, keyRows[2], 24);
-    assignScale(scale, keyRows[1], 12);
-    assignScale(scale, keyRows[0]);;
+    mapScales();
+    isChords = false;
     }
     
     function clickMinorPent() {
     scale = mnPent;
     console.log("MinorPent");
-    assignScale(scale, keyRows[3], 36);
-    assignScale(scale, keyRows[2], 24);
-    assignScale(scale, keyRows[1], 12);
-    assignScale(scale, keyRows[0]);
+    mapScales();
+    isChords = false;
     }
     
     function clickBlues() {
     scale = blues;
     console.log("Blues");
-    assignScale(scale, keyRows[3], 36);
-    assignScale(scale, keyRows[2], 24);
-    assignScale(scale, keyRows[1], 12);
-    assignScale(scale, keyRows[0]);
+    mapScales();
+    isChords = false;
     }
     
-      function assignScale(scale, keys, offset) {
-        var offset = offset || 0;
-        for (var i in keys) {
-          var rootOffset = root;
-          var whichNote = i % scale.length;
-          if (i > scale.length - 1) {
-            rootOffset += 12;
-          }
-          keys[i].note = scale[whichNote] + rootOffset + offset;
-        }
+    function clickWholeTone() {
+    scale = wholeTone;
+    console.log("Whole Tone");
+    mapScales();
+    isChords = false;
+    }
+
+    function clickHarmMinor() {
+    scale = harmMinor;
+    console.log("Harmonic Minor");
+    mapScales();
+    isChords = false;
+    } 
+    function clickMajChords(){
+    chords = major;
+    assignChords(chords);
+    }  
+    function clickMinChords(){
+    chords = minor;
+    assignChords(chords); 
+    }
+    function clickHMinChords(){
+    chords = harmMinor;
+    assignChords(chords); 
+    }
+    
+    function assignScale(scale, keys, offset) {
+	var offset = offset || 0;
+    	for (var i in keys) {
+	    var rootOffset = root;
+	    var whichNote = i % scale.length;
+    	
+ 			if (i > scale.length - 1) {
+	 		rootOffset += 12;	
+			}
+    
+		keys[i].note = scale[whichNote] + rootOffset + offset;
+    	}
+    }
+      
+    
+    
+    function assignChords(scale){
+    assignScale(scale, keyRows[0]);
+	      
+	      if (scale == major){
+	      thirds = major3rds;
+	      fifths = major5ths;
+	      }
+	      if (scale == minor){
+		  thirds = minor3rds;
+		  fifths = minor5ths;
+	      }
+	      
+	      
+	      if (scale == harmMinor){
+		  thirds = hMinor3rds;
+		  fifths = hMinor5ths;
+	      }
+	      
+	      
+	      
+	      
+	      console.log(thirds, fifths);
+	      assignScale(thirds, keyRows[1]);
+	      assignScale(fifths, keyRows[2]);
+	      assignScale(scale, keyRows[3], 12);
+	      isChords = true;		      
+	      
       }
 
       //set up Tone Synth
@@ -170,6 +263,15 @@
           }
         }
       }
+      
+      function mapScales(){
+      
+    assignScale(scale, keyRows[3], 36);
+    assignScale(scale, keyRows[2], 24);
+    assignScale(scale, keyRows[1], 12);
+    assignScale(scale, keyRows[0]);
+    }
+          
 
     </script>
   </head>
@@ -180,7 +282,7 @@
     </div>
     <div id="container">
       <div id="myVideo">
-<!--       <iframe id="myVideo" width="560" height="315" src="//www.youtube.com/embed/lVFNRrL79w0?feature=player_embedded&controls=0&enablejsapi=1&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+            <iframe id="myVideo" width="560" height="315" src="//www.youtube.com/embed/lVFNRrL79w0?feature=player_embedded&controls=0&enablejsapi=1&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
      </div>
    </div>
 
