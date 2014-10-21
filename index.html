@@ -132,16 +132,12 @@
       var playing = false;
 
       function mouseClicked() {
-        console.log(mouseX, mouseY);
         if (mouseX < videoWidth && mouseY < videoHeight) {
-
           if (playing === false) {
-            player.playVideo();
-            console.log('start');
+            playVideo();
             playing = true;
           } else {
-            player.stopVideo();
-            console.log('stop');
+            stopVideo();
             playing = false;
           }
         }
