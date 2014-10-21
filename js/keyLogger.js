@@ -2,52 +2,91 @@
   generate json file with timestamp, note, action
  */
 
-var keyLog = [];
-var takes = [];
+var eventLog = {};
+eventLog.takes = [];
+
+var Take = function(time, id) {
+  this.startTime = time;
+  this.endTime;
+  this.id = id;
+  this.notes = [];
+};
 
 function logKeyDown(keyCode, note) {
-  console.log('key down!' + keyCode + ', ' + note);
-  keyLog.push([Tone.context.currentTime, note, 'triggerAttack']);
+  // eventLog.attacks.push({ 'time' : Tone.context.currentTime, 'note': note, 'take' : currentTake });
+  currentTake.notes.push([Tone.context.currentTime - currentTake.startTime, note, 'attack']);
 }
 
 function logKeyUp(keyCode, note) {
-  console.log('key up!' + keyCode + ', ' + note);
-  keyLog.push([Tone.context.currentTime, note, 'triggerRelease']);
+  // eventLog.releases.push({ 'time' : Tone.context.currentTime, 'note': note, 'take' : currentTake});
+  currentTake.notes.push([Tone.context.currentTime - currentTake.startTime, note, 'release']);
 }
 
+// the 0th take is the take that holds all non-takes
+var currentTake = new Take(Tone.context.currentTime, eventLog.takes.length);
+eventLog.takes.push(currentTake);
+
+function startTake() {
+  currentTake = new Take(Tone.context.currentTime, eventLog.takes.length);
+  eventLog.takes.push(currentTake)
+}
 
 function saveTake() {
-  // save(keyLog, 'keylog.json');
-  var currentTake = keyLog;
-  takes.push(currentTake);
-
-  // reset keylog
-  keyLog = [];
-
-  // startTime is the time of the first note in the take
-  var startTime = currentTake[0][0];
+  // revert to using the 0th take
+  currentTake = eventLog.takes[0];
 
   // add option to the takesMenu
   var option = document.createElement('option');
-  option.text = 'Take ' + takes.length;
+  option.text = 'Take ' + (eventLog.takes.length - 1).toString();
   takesMenu.add(option);
+}
 
-  for (var i in takes[takes.length - 1]) {
-    // schedule notes
+var takesMenu;
+function setupTakesMenu() {
+  // Frontend Menu of takes
+  takesMenu = document.createElement('SELECT');
+  takesMenu.id = 'takesMenu';
+  var option = document.createElement('option');
+  option.text = 'Select Your Take to Play Back';
+  takesMenu.add(option);
+  takesMenu.onchange = function(e) {takeSelected(e)};
+  document.body.appendChild(takesMenu);
+}
 
-    if (currentTake[i][2] === 'triggerAttack') {
-      console.log('saving attack');
-      mySynth.triggerAttack( mySynth.midiToNote(currentTake[i][1]), mySynth.now() + currentTake[i][0] - startTime );
-    } else if (currentTake[i][2] === 'triggerRelease') {
-      console.log('saving release');
-      mySynth.triggerRelease( mySynth.midiToNote(currentTake[i][1]), mySynth.now() + currentTake[i][0] - startTime );
-    }
+function takeSelected(e) {
+  if (takesMenu.selectedIndex > 0) {
+    playTake(takesMenu.selectedIndex);
+    var selectedValue = takesMenu.options[takesMenu.selectedIndex].value;
+    console.log('playing ' + selectedValue + 'take number: ' + takesMenu.selectedIndex);
+    playVideo();
   }
 }
 
-function setupTakesMenu() {
-  // Frontend Menu of takes
-  var takesMenu = document.createElement('SELECT');
-  takesMenu.id = 'takesMenu';
-  document.body.appendChild(takesMenu);
+function playTake(takeNumber) {
+  var take = eventLog.takes[takeNumber];
+  console.log(take);
+  // schedule all the attacks & releases
+  for (var i in take.notes) {
+    if (take.notes[i][2] === 'attack') {
+      mySynth.triggerAttack( mySynth.midiToNote(take.notes[i][1]), mySynth.now() + take.notes[i][0]);
+    }
+    else if (take.notes[i][2] === 'release') {
+      mySynth.triggerRelease( mySynth.midiToNote(take.notes[i][1]), mySynth.now() + take.notes[i][0]);
+    }
+  }
+
+  // schedule videoEnd
+  var videoStopTime = Math.round(take.endTime * 1000);
+  setTimeout(stopVideo, videoStopTime);
+
+
+}
+
+function flushNotes() {
+  for (var i in mySynth._activeVoices) {
+    if (mySynth._activeVoices[i]) {
+      mySynth._activeVoices[i].triggerRelease();
+    }
+  }
+  currentTake.endTime = Tone.context.currentTime;
 }

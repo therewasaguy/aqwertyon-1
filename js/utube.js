@@ -38,15 +38,29 @@ function onPlayerReady(event) {
 //    The API calls this function when the player's state changes.
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
-var done = false;
 function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    setTimeout(stopVideo, 6000);
-    done = true;
+  console.log(event.data);
+  if (event.data === YT.PlayerState.ENDED || event.data === YT.PlayerState.PAUSED) {
+    stopVideo();
+  }
+  if (event.data === YT.PlayerState.PLAYING) {
+    // startTake();
+    console.log('playing video starting take');
   }
 }
 
 function stopVideo() {
   player.stopVideo();
-  saveTake();
+  flushNotes();
+  if (currentTake.id > 0 && currentTake.notes.length > 0) {
+    saveTake();
+  } else {
+    currentTake = eventLog.takes[0];
+  }
+}
+
+function playVideo() {
+  player.seekTo(0);
+  player.playVideo();
+  startTake();
 }
