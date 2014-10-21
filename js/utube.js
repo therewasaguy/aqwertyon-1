@@ -43,12 +43,20 @@ function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED || event.data === YT.PlayerState.PAUSED) {
     stopVideo();
   }
+  if (event.data === YT.PlayerState.PLAYING) {
+    // startTake();
+    console.log('playing video starting take');
+  }
 }
 
 function stopVideo() {
   player.stopVideo();
   flushNotes();
-  saveTake();
+  if (currentTake.id > 0 && currentTake.notes.length > 0) {
+    saveTake();
+  } else {
+    currentTake = eventLog.takes[0];
+  }
 }
 
 function playVideo() {
