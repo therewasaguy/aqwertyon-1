@@ -1,5 +1,5 @@
 /*
-  generate json file with timestamp, 
+  generate json file with timestamp, note, action
  */
 
 var keyLog = [];
@@ -27,8 +27,14 @@ function saveTake() {
   // startTime is the time of the first note in the take
   var startTime = currentTake[0][0];
 
+  // add option to the takesMenu
+  var option = document.createElement('option');
+  option.text = 'Take ' + takes.length;
+  takesMenu.add(option);
+
   for (var i in takes[takes.length - 1]) {
     // schedule notes
+
     if (currentTake[i][2] === 'triggerAttack') {
       console.log('saving attack');
       mySynth.triggerAttack( mySynth.midiToNote(currentTake[i][1]), mySynth.now() + currentTake[i][0] - startTime );
@@ -37,5 +43,11 @@ function saveTake() {
       mySynth.triggerRelease( mySynth.midiToNote(currentTake[i][1]), mySynth.now() + currentTake[i][0] - startTime );
     }
   }
-  console.log(startTime);
+}
+
+function setupTakesMenu() {
+  // Frontend Menu of takes
+  var takesMenu = document.createElement('SELECT');
+  takesMenu.id = 'takesMenu';
+  document.body.appendChild(takesMenu);
 }
