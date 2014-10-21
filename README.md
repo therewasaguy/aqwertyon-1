@@ -1,7 +1,7 @@
 aqwertyon
 =========
 
-Fun with a computer keyboard plus sound/audio/music
+Fun with a computer keyboard plus sound/audio/music/video/bluetooth
 
 NYU MusEDLab - http://musedlab.org
 -----------
