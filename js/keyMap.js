@@ -113,11 +113,12 @@ function mapScales(){
 }
 
 function registerKeymap(km) {
-    keyRows[0] = [km.z, km.x, km.c, km.v, km.b, km.n, km.m];
-    keyRows[1] = [km.a, km.s, km.d, km.f, km.g, km.h, km.j, km.k, km.l];
-    keyRows[2] = [km.q, km.w, km.e, km.r, km.t, km.y, km.u, km.i, km.o, km.p];
+
+    keyRows[0] = [km.z, km.x, km.c, km.v, km.b, km.n, km.m, km['188'], km['190'], km['191']];
+    keyRows[1] = [km.a, km.s, km.d, km.f, km.g, km.h, km.j, km.k, km.l, km['186'], km['222']];
+    keyRows[2] = [km.q, km.w, km.e, km.r, km.t, km.y, km.u, km.i, km.o, km.p, km['219'], km['221'], km['220']];
     keyRows[3] = [km['1'], km['2'], km['3'], km['4'], km['5'],
-                  km['6'], km['7'], km['8'], km['9'], km['0']
+                  km['6'], km['7'], km['8'], km['9'], km['0'], km['189'], km['187']
                   ];
     myKeymap = km;
 

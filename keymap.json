@@ -24,7 +24,7 @@
       "4" : {         
         "audio" : "",   
         "image" : "", 
-         "playing" : false,    
+        "playing" : false,    
         "keyCode" : 52   
       },
       
@@ -68,6 +68,22 @@
         "image" : "", 
         "playing" : false,    
         "keyCode" : 48      
+      },
+        
+        "189" : { 
+        "this is a hyphen -": 0,      
+        "audio" : "",     
+        "image" : "", 
+        "playing" : false,    
+        "keyCode" : 189     
+      },
+        
+        "187" : {
+        "this is equals = " : 0,      
+        "audio" : "",     
+        "image" : "", 
+        "playing" : false,    
+        "keyCode" : 187      
       },
         
         "z" : {
@@ -116,27 +132,38 @@
         "image" : "", 
         "playing" : false,    
         "keyCode" : 77     
-      },  
+      }, 
+     
       
-      "," : {         
+      "188" : {    
+      	"this is a comma ,": 0,
         "audio" : "",     
         "image" : "", 
         "playing" : false,  
         "keyCode" : 188    
       },
     
-      "." : {       
+      "190" : { 
+      	"this is a period .": 0,     
         "audio" : "",   
         "image" : "",
         "playing" : false,   
         "keyCode" : 190    
       },
       
-      "/" : {         
+      "191" : {  
+      	"this is a forwardslash / ": 0,       
         "audio" : "",     
         "image" : "", 
         "playing" : false,    
-        "keyCode" : 220    
+        "keyCode" : 191    
+      },
+      "220" : {  
+      	"this is a backslash / ": 0,       
+        "audio" : "",     
+        "image" : "", 
+        "playing" : false,    
+        "keyCode" : 220   
       },
       
       "a" : {       
@@ -162,7 +189,8 @@
       
       "f" : {       
         "audio" : "",   
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 70     
       },
     
@@ -201,14 +229,16 @@
         "keyCode" : 76   
       },
     
-      ";" : {       
+      "186" : {  
+      	"this is a semi colon ;" : 0,     
         "audio" : "",   
         "image" : "", 
         "playing" : false,  
         "keyCode" : 186  
       },
       
-      "'" : {       
+      "222" : { 
+      	"this is a single quote ' ": 0,      
         "audio" : "",     
         "image" : "",
         "playing" : false,     
@@ -217,73 +247,87 @@
       
       "q" : {         
         "audio" : "",     
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 81   
       },
       
       "w" : {         
         "audio" : "",     
-        "image" : "",   
+        "image" : "",
+        "playing" : false,   
         "keyCode" : 87   
       },
       
       "e" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 69   
       },  
       
       "r" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "",  
+        "playing" : false, 
         "keyCode" : 82     
       },
     
       "t" : {       
         "audio" : "",     
-        "image" : "",   
+        "image" : "",
+        "playing" : false,   
         "keyCode" : 84   
       },
       
       "y" : {         
         "audio" : "",   
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 89   
       },
       
       "u" : {       
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 85   
       },
       
       "i" : {       
         "audio" : "",     
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 73   
       },
       
       "o" : {         
         "audio" : "",     
         "image" : "",
+        "playing" : false,
         "keyCode" : 79     
       },  
       
       "p" : {     
         "audio" : "",     
-        "image" : "",     
+        "image" : "",
+        "playing" : false,     
         "keyCode" : 80   
       },
     
-      "[" : {       
+      "219" : {   
+      	"this is an open bracket [" : 0,   
         "audio" : "",   
-        "image" : "",   
+        "image" : "", 
+        "playing" : false,  
         "keyCode" : 219    
       },
       
-      "]" : {       
+      "221" : {    
+      	"this is a closed bracket ]" : 0, 
         "audio" : "",     
-        "image" : "",     
+        "image" : "", 
+        "playing" : false,    
         "keyCode" : 221      
       }
       

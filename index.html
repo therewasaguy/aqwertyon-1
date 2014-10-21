@@ -72,9 +72,11 @@
         thirds = major3rds;
         fifths = major5ths;
         chords = major;
-
+        
         // set up the menu of takes
         setupTakesMenu();
+        clickMajor()
+
       }
 
 
@@ -108,7 +110,9 @@
             console.log(e.keyCode);
             myKeymap[k].playing = true;
             if (myKeymap[k].note > 20) {
+
               logKeyDown(myKeymap[k].keyCode, myKeymap[k].note);
+
               mySynth.triggerAttack( mySynth.midiToNote(myKeymap[k].note), mySynth.now() );
             }
             return;
@@ -121,7 +125,9 @@
           if (myKeymap[k].keyCode === (e.keyCode) ) {
             if (myKeymap[k].note > 20) {
               myKeymap[k].playing = false;
+
               logKeyUp(myKeymap[k].keyCode, myKeymap[k].note);
+
               mySynth.triggerRelease( mySynth.midiToNote(myKeymap[k].note), mySynth.now() );
             }
             return;
