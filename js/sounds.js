@@ -85,7 +85,7 @@ function setupTone() {
 
 
 function setMasterVolume(vol) {
-  document.querySelector('#volume').value = vol;
+  document.querySelector('#vol').value = vol;
   var gain = vol/100;
   var db = Tone.Master.gainToDb(gain);
   Tone.Master.setVolume(db);
