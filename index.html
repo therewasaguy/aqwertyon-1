@@ -2,169 +2,73 @@
   <head>
     <script language="javascript" type="text/javascript" src="./lib/p5.js"></script>
     <script language="javascript" type="text/javascript" src="./lib/p5.dom.js"></script>
+
     <script language="javascript" type="text/javascript" src="./lib/Tone.js"></script>
+    <script language="javascript" type="text/javascript" src="./lib/Tone.Preset.js "></script>
+
     <script language="javascript" type="text/javascript" src="./js/utube.js"></script>
     <script language="javascript" type="text/javascript" src="./js/keyMap.js"></script>
     <script language="javascript" type="text/javascript" src="./js/keyLogger.js"></script>
-   
-    
-        <link rel="stylesheet" type="text/css" href="./style.css">
-
- <div id = 'scales'>
- 	<h3>Scales</h3>      
-	 <p id="Maj" onclick="clickMajor()">Major</p>
-	 <p id="Min" onclick="clickMinor()">Minor</p>
-	 <p id="MPent" onclick="clickMajorPent()">Major Pentatonic</p>
-	 <p id="miPent" onclick="clickMinorPent()">Minor Pentatonic</p>
-	 <p id="Blues" onclick="clickBlues()">Blues</p>
-	 <p id="Whole" onclick="clickWholeTone()">Whole Tone</p>
-	 <p id="harmMinor" onclick="clickHarmMinor()">Harmonic Minor</p>
-
- </div>
- 
- <div id = 'chords'>
- 	<h3>Chords</h3>
-	 <p id="chordMaj" onclick="clickMajChords()">Major</p>
-	 <p id="chordMin" onclick="clickMinChords()">Minor</p>
-	 <p id="chordHMin" onclick="clickHMinChords()">Harmonic Minor</p>
- </div> 
-      
- <div id = 'menu'> 
- 	<h3>Options</h3>
-	 <p id="root+" onclick="rootUp()">Root +</p>
-	 <p id="root-" onclick="rootDown()">Root -</p>
- </div>  
-   
-    <script>
-      var myKeymap;
-      var keyRows = [];
-      var keyDiags = [];
-      var scale = [];
-      var major = [0, 2, 4, 5, 7, 9, 11];
-      var major3rds = [4,5,7,9,11,12,14];
-      var major5ths = [7,9,11,12,14,16,17];
-      var minor = [0, 2, 3, 5, 7, 8, 10];
-      var minor3rds = [3,5,7,8,10,12,14];
-      var minor5ths = [7,8,10,12,14,15,17];
-      var mnPent = [0, 3, 5, 7, 10];
-      var MjPent = [0, 2, 4, 7, 9];
-      var blues = [0,3,5,6,7,10];
-      var wholeTone = [0,2,4,6,8,10];
-      var harmMinor = [0,2,3,5,7,8,11];
-      var hMinor3rds = [3,5,7,8,11,12,14];
-      var hMinor5ths = [7,8,10,12,14,15,17];
-      var root;
-      var chords;
-      var isChords;
-      var thirds = [];
-  	  var fifths = [];
-      
-    
-
-      function setup() {
-        // set the canvas position so that mouseX and mouseY are relative to top corner
-        cnv = createCanvas(0,0);
-        cnv.position(0,0);
-        loadJSON('keymap.json', registerKeymap);
-        scale = major;
-        root = 48;
-        isChords = false;
-        thirds = major3rds;
-        fifths = major5ths;
-        chords = major;
-        
-        // set up the menu of takes
-        setupTakesMenu();
-        clickMajor()
-
-      }
-
-
-      function rootUp(){
-      root+=1;	
-	      if (isChords == true) 
-	      assignChords(chords);
-	      else
-	      mapScales();
-      
-      }
-      
-      function rootDown(){
-      root-=1;
-	      if (isChords == true) 
-	      assignChords(chords);
-	      else
-	      mapScales();
-            
-      }
-
-      //set up Tone Synth
-      var mySynth = new Tone.PolySynth(10, Tone.MonoSynth);
-      mySynth.setPreset('Pianoetta');
-      mySynth.toMaster();
-
-
-      window.onkeydown = function (e) {
-        for (var k in myKeymap) {
-          if (myKeymap[k].keyCode === e.keyCode && !myKeymap[k].playing) {
-            console.log(e.keyCode);
-            myKeymap[k].playing = true;
-            if (myKeymap[k].note > 20) {
-
-              logKeyDown(myKeymap[k].keyCode, myKeymap[k].note);
-
-              mySynth.triggerAttack( mySynth.midiToNote(myKeymap[k].note), mySynth.now() );
-            }
-            return;
-          }
-        }
-      }
-
-      window.onkeyup = function(e) {
-        for (var k in myKeymap) {
-          if (myKeymap[k].keyCode === (e.keyCode) ) {
-            if (myKeymap[k].note > 20) {
-              myKeymap[k].playing = false;
-
-              logKeyUp(myKeymap[k].keyCode, myKeymap[k].note);
-
-              mySynth.triggerRelease( mySynth.midiToNote(myKeymap[k].note), mySynth.now() );
-            }
-            return;
-          }
-        }
-      }
-
-      var playing = false;
-
-      function mouseClicked() {
-        if (mouseX < videoWidth && mouseY < videoHeight) {
-          if (playing === false) {
-            playVideo();
-            playing = true;
-          } else {
-            stopVideo();
-            playing = false;
-          }
-        }
-      }
-
-
-    </script>
+    <script language="javascript" type="text/javascript" src="./js/sounds.js"></script>
+    <script language="javascript" type="text/javascript" src="./js/ui.js"></script>
+    <script language="javascript" type="text/javascript" src="./js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
   </head>
 
   <body>
 
+  <div id='ui'>
+    <div id='scales' class='menu' >
+      <h3>Scales</h3>
+       <p id="Maj" onclick="clickMajor()">Major</p>
+       <p id="Min" onclick="clickMinor()">Minor</p>
+       <p id="MPent" onclick="clickMajorPent()">Major Pentatonic</p>
+       <p id="miPent" onclick="clickMinorPent()">Minor Pentatonic</p>
+       <p id="Blues" onclick="clickBlues()">Blues</p>
+       <p id="Whole" onclick="clickWholeTone()">Whole Tone</p>
+       <p id="harmMinor" onclick="clickHarmMinor()">Harmonic Minor</p>
+    </div>
+
+    <div class='menu' id='chords'>
+      <h3>Chords</h3>
+      <p id="chordMaj" onclick="clickMajChords()">Major</p>
+      <p id="chordMin" onclick="clickMinChords()">Minor</p>
+      <p id="chordHMin" onclick="clickHMinChords()">Harmonic Minor</p>
+    </div> 
+
+    <div class='menu' id='options'> 
+      <h3>Options</h3>
+      <p id="root+" onclick="rootUp()">Root +</p>
+      <p id="root-" onclick="rootDown()">Root -</p>
+    </div>
+
+    <div id='dropdowns'></div>
+      <div id='takes' class='dropdown'>
+        <p>Playback Takes</p>
+      </div>
+
+      <div id='synths' class='dropdown'>
+        <p>Select Instrument</p>
+      </div>
+
+      <div id='volume' class='slider'>
+        <!-- <h3>Set Volume</h3> -->
+        <label for=fader>Volume</label>
+        <input type=range min=0 max=100 value=50 id="fader" step=1 oninput="setMasterVolume(value)">
+        <output for=fader id="volume">50</output>
+
+      </div>
+
+    </div>
+
     <div id="titlebar">
     </div>
+
     <div id="container">
       <div id="myVideo">
             <iframe id="myVideo" width="560" height="315" src="//www.youtube.com/embed/lVFNRrL79w0?feature=player_embedded&controls=0&enablejsapi=1&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
      </div>
    </div>
-
-
-   
 
   </body>
 </html>

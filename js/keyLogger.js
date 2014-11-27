@@ -2,6 +2,7 @@
   generate json file with timestamp, note, action
  */
 
+
 var eventLog = {};
 eventLog.takes = [];
 
@@ -13,12 +14,10 @@ var Take = function(time, id) {
 };
 
 function logKeyDown(keyCode, note) {
-  // eventLog.attacks.push({ 'time' : Tone.context.currentTime, 'note': note, 'take' : currentTake });
   currentTake.notes.push([Tone.context.currentTime - currentTake.startTime, note, 'attack']);
 }
 
 function logKeyUp(keyCode, note) {
-  // eventLog.releases.push({ 'time' : Tone.context.currentTime, 'note': note, 'take' : currentTake});
   currentTake.notes.push([Tone.context.currentTime - currentTake.startTime, note, 'release']);
 }
 
@@ -39,18 +38,6 @@ function saveTake() {
   var option = document.createElement('option');
   option.text = 'Take ' + (eventLog.takes.length - 1).toString();
   takesMenu.add(option);
-}
-
-var takesMenu;
-function setupTakesMenu() {
-  // Frontend Menu of takes
-  takesMenu = document.createElement('SELECT');
-  takesMenu.id = 'takesMenu';
-  var option = document.createElement('option');
-  option.text = 'Select Your Take to Play Back';
-  takesMenu.add(option);
-  takesMenu.onchange = function(e) {takeSelected(e)};
-  document.body.appendChild(takesMenu);
 }
 
 function takeSelected(e) {
@@ -78,8 +65,6 @@ function playTake(takeNumber) {
   // schedule videoEnd
   var videoStopTime = Math.round(take.endTime * 1000);
   setTimeout(stopVideo, videoStopTime);
-
-
 }
 
 function flushNotes() {
