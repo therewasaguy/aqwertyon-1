@@ -7,15 +7,18 @@ NYU MusEDLab - http://musedlab.org
 -----------
 
 To Do:
-
-1. Debounce key input
-2. Datalog json structure design and implementation
+Finish datalog json structure design and implementation:
+  - Fix bugs to make sure we only create new Takes at the right time, and that multiple takes play back correctly
   - Generate hashed session
-  - data log everything in new session
+  
+Completed Oct 20:
+1. Debounce key input
+2. Datalog Structure phase 1
   - timestamp, note (key), on/off(up/down)
   - sync to video start, stop and position
   - each play/stop pair generates a new "take"
-  
+  - data log everything in new session
+
 Modes
 ------
 

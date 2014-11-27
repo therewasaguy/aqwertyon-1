@@ -1,3 +1,13 @@
+/**
+ *  possible color schemes
+ *  http://colorschemedesigner.com/csd-3.5/#4E42f--rUFfFf
+ */
+
+body {
+  background-color:#EFEEFF;
+}
+
+
 /*
   Titlebar blocks the Video div so we can
   usurp youtube controls
@@ -21,7 +31,7 @@
   margin-bottom: 50;
   width: 740px;
   height: 500px;
-  background-color: #ffffff;
+  background-color: #590095;
   background-position: 0px 0px;
   background-repeat: no-repeat;
   border-style: solid;
@@ -31,65 +41,52 @@
 	padding-right: 15;
 	padding-top: 20;
 	padding-bottom: 15;
-	
-	
 }
-	
-#scales{
-margin-top: 15;
+
+.menu{
+
 	float: right;
 	position:relative;
-	margin-right: 20;
 	height: auto;
 	
+	margin-right: 20;
 	border-style: solid;
 	border-width: 2;
 	border-color: black;
 	display: block;
 	padding-left: 15;
 	padding-right: 15;
+}
+
+#ui {
+/*  margin-top: 15;*/
+  float: right;
+  position:relative;
+  height: auto;
+  background-color: #F4F291;
+  border-style: none;
+  width: 600;
+  border-style: solid;
+  border-width: 20;
+  border-color: #959331;
+  display: block;
+  padding: 12px;
+}
+
+.dropdown {
+}
+
+#scales{
 }
 
 #chords{
-margin-top: 15;
-	float: right;
-	position:relative;
-	height: auto;
-	
-	margin-right: 20;
-	border-style: solid;
-	border-width: 2;
-	border-color: black;
-	display: block;
-	padding-left: 15;
-	padding-right: 15;
-}
-#menu{
-margin-top: 15;
-	float: right;
-	position:relative;
-	height: auto;
-	
-	margin-right: 20;
-	border-style: solid;
-	border-width: 2;
-	border-color: black;
-	display: block;
-	padding-left: 15;
-	padding-right: 15;
 }
 
-#takesMenu {
+#dropdowns {
   margin-top: 15;
   float: right;
   position:relative;
-  margin-right: 20;
   height: auto;
-  
-  border-style: solid;
-  border-width: 2;
-  border-color: black;
-  display: block;
-  padding-left: 15;
-  padding-right: 15;
+  border-style: none;
+
 }
