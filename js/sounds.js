@@ -1,3 +1,8 @@
+/**
+ *  sounds.js has stuff that has to do with sound and Tone.js
+ */
+
+// scale mapping
 var scale = [];
 var major = [0, 2, 4, 5, 7, 9, 11];
 var major3rds = [4,5,7,9,11,12,14];
@@ -37,13 +42,15 @@ function rootDown(){
 var mySynth, myReverb;
 var initialVolume = 0.5;
 
+// Presets are defined in lib/Tone.Preset.js
 var synths = ['Pianoetta', 'Bassy', 'BrassCircuit', 'Trumpet', 'Koto', 'Steely', 'Organ'];
 
-function synthSelected(s) {
-  var s = synthMenu.options[synthMenu.selectedIndex].value;
-  console.log(s);
+function synthSelected() {
+  var presetName = synthMenu.options[synthMenu.selectedIndex].value;
   mySynth.dispose();
-  switch(s){
+
+  // presets and correspond with either FMSynth, DuoSynth or MonoSynth
+  switch(presetName){
     case 'Koto':
     case 'Trumpet':
         mySynth = new Tone.PolySynth(10, Tone.FMSynth);
@@ -55,7 +62,7 @@ function synthSelected(s) {
     default:
         mySynth = new Tone.PolySynth(10, Tone.MonoSynth);
   }
-  mySynth.setPreset(s);
+  mySynth.setPreset(presetName);
   mySynth.connect(myReverb);
 }
 

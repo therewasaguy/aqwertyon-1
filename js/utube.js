@@ -1,3 +1,7 @@
+/**
+ *  utube.js talks to the YouTube API
+ */
+
 // source: https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
 
 var videoWidth = 720;

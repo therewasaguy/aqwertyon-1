@@ -1,3 +1,8 @@
+/**
+ *  main.js calls setup() to initialize everything when the page loads,
+ *  and draw() for the animation loop. Also listens for events like key/mouse press.
+ */
+
 var myKeymap;
 var keyRows = [];
 var keyDiags = [];

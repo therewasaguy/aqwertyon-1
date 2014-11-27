@@ -1,3 +1,7 @@
+/**
+ *  ui.js handles creation of menus / user interface
+ */
+
 var takesMenu;
 var synthMenu;
 
@@ -12,7 +16,6 @@ function setupTakesMenu() {
 
   var ui = document.getElementById('takes');
   ui.appendChild(takesMenu);
-  // document.body.appendChild(takesMenu);
 }
 
 function setupSynthMenu() {
@@ -29,6 +32,4 @@ function setupSynthMenu() {
 
   var ui = document.getElementById('synths');
   ui.appendChild(synthMenu);
-  // document.body.appendChild(takesMenu);
 }
-// var 

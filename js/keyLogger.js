@@ -1,5 +1,7 @@
-/*
-  generate json file with timestamp, note, action
+/**
+ *  keyLogger.js
+ *    - logs keystrokes as JSON with timestamp, note, action
+ *    - handles playback of takes
  */
 
 
