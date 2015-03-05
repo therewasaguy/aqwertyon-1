@@ -15,12 +15,17 @@ var Take = function(time, id) {
   this.notes = [];
 };
 
-function logKeyDown(keyCode, note) {
-  currentTake.notes.push([Tone.context.currentTime - currentTake.startTime, note, 'attack']);
-}
-
-function logKeyUp(keyCode, note) {
-  currentTake.notes.push([Tone.context.currentTime - currentTake.startTime, note, 'release']);
+/**
+ *  Logs a keyStroke as either 'attack' or 'release'.
+ *  
+ *  @param  {Number} acTime AudioContext time
+ *  @param  {Number} keyCode ASCII key code
+ *  @param  {Number} midiNote    midi number
+ *  @param  {String} type    'attack' or 'release'
+ */
+function logKeyStroke(acTime, keyCode, midiNote, type) {
+  var relativeTime = acTime - currentTake.startTime;
+  currentTake.notes.push([relativeTime, midiNote, keyCode, type]);
 }
 
 // the 0th take is the take that holds all non-takes
@@ -56,10 +61,10 @@ function playTake(takeNumber) {
   console.log(take);
   // schedule all the attacks & releases
   for (var i in take.notes) {
-    if (take.notes[i][2] === 'attack') {
+    if (take.notes[i][3] === 'attack') {
       mySynth.triggerAttack( mySynth.midiToNote(take.notes[i][1]), mySynth.now() + take.notes[i][0]);
     }
-    else if (take.notes[i][2] === 'release') {
+    else if (take.notes[i][3] === 'release') {
       mySynth.triggerRelease( mySynth.midiToNote(take.notes[i][1]), mySynth.now() + take.notes[i][0]);
     }
   }

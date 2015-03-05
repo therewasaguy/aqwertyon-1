@@ -45,7 +45,7 @@ window.onkeydown = function (e) {
       myKeymap[k].playing = true;
       if (myKeymap[k].note > 20) {
 
-        logKeyDown(myKeymap[k].keyCode, myKeymap[k].note);
+        logKeyStroke(mySynth.now(), myKeymap[k].keyCode, myKeymap[k].note, 'attack');
 
         mySynth.triggerAttack( mySynth.midiToNote(myKeymap[k].note), mySynth.now() );
       }
@@ -60,7 +60,7 @@ window.onkeyup = function(e) {
       if (myKeymap[k].note > 20) {
         myKeymap[k].playing = false;
 
-        logKeyUp(myKeymap[k].keyCode, myKeymap[k].note);
+        logKeyStroke(mySynth.now(), myKeymap[k].keyCode, myKeymap[k].note, 'release');
 
         mySynth.triggerRelease( mySynth.midiToNote(myKeymap[k].note), mySynth.now() );
       }
